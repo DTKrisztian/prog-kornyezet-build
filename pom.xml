@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>progkor.factsite</groupId>
+	<groupId>progkor</groupId>
 	<artifactId>factsite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>pom</name>
+	<name>factsite</name>
 	<description>Catalog application for FactSite</description>
 
 	<properties>
