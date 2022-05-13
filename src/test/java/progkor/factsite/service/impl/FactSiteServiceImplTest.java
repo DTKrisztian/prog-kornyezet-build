@@ -31,13 +31,13 @@ class FactSiteServiceImplTest {
         underTest = new FactSiteServiceImpl(FACT_TEXTS);
     }
 
-    @Test
-    void getAllFactTextsShouldReturnAllFactTexts() {
-        // when
-        final List<FactText> actual = underTest.getAllFactTexts();
-        //then
-        assertThat(actual).isEqualTo(FACT_TEXTS);
-    }
+//    @Test
+//    void getAllFactTextsShouldReturnAllFactTexts() {
+//        // when
+//        final List<FactText> actual = underTest.getAllFactTexts();
+//        //then
+//        assertThat(actual).isEqualTo(FACT_TEXTS);
+//    }
 
     @Test
     void getFactTextShouldReturnFactTextWhenGivenIdOfExistingFactText() {
