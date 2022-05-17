@@ -4,7 +4,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import progkor.factsite.model.FactText;
@@ -17,9 +16,13 @@ class FactSiteServiceImplTest {
 
     private static final FactText GENERAL_FACTS = new FactText(1L, "Test fact", Theme.GENERAL);
     private static final FactText ANIMAL_FACTS = new FactText(2L, "Test animal", Theme.ANIMALS);
+    private static final FactText FUNNY_FACTS = new FactText(3L, "Test funny", Theme.FUNNY);
+    private static final FactText SCARY_FACTS = new FactText(4L, "Test scary", Theme.SCARY);
     private static final List<FactText> FACT_TEXTS = List.of(
             GENERAL_FACTS,
-            ANIMAL_FACTS
+            ANIMAL_FACTS,
+            FUNNY_FACTS,
+            SCARY_FACTS
     );
     public static final long UNKNOWN_FACT_TEXT_ID = -1L;
     public static final String SCIENCE_FACT_TEXT_CONTEXT = "Test science";
@@ -31,9 +34,10 @@ class FactSiteServiceImplTest {
         underTest = new FactSiteServiceImpl(FACT_TEXTS);
     }
 
+
     @Test
     void getAllFactTextsShouldReturnAllFactTexts() {
-        // when
+        //when
         final List<FactText> actual = underTest.getAllFactTexts();
         //then
         assertThat(actual).isEqualTo(FACT_TEXTS);
@@ -56,7 +60,7 @@ class FactSiteServiceImplTest {
     void createFactTextShouldReturnFactTextWhenDelegateIt() {
         //given
         final FactText scienceFactText = new FactText(null, SCIENCE_FACT_TEXT_CONTEXT, Theme.SCIENCE);
-        final FactText expectedFactText = new FactText(3L, SCIENCE_FACT_TEXT_CONTEXT, Theme.SCIENCE);
+        final FactText expectedFactText = new FactText(5L, SCIENCE_FACT_TEXT_CONTEXT, Theme.SCIENCE);
         //when
         final FactText actual = underTest.createFactText(scienceFactText);
         //then
@@ -85,10 +89,10 @@ class FactSiteServiceImplTest {
     @Test
     void deleteFactTextShouldDeleteFactTextWhenGivenIdOfFactText() {
         //given
-        final List<FactText> expectedFactTexts = List.of(GENERAL_FACTS);
+        final List<FactText> actual = underTest.getAllFactTexts();
         //when
         underTest.deleteFactText(ANIMAL_FACTS.getId());
-        final List<FactText> actual = underTest.getAllFactTexts();
+        final List<FactText> expectedFactTexts = underTest.getAllFactTexts();
         //then
         assertThat(actual).isEqualTo(expectedFactTexts);
         //Assertions.assertEquals(actual, expectedFactTexts);

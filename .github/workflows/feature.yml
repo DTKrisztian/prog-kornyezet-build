@@ -10,7 +10,6 @@ on:
     - 'bugfix/**'
     - 'hotfix/**'
     - 'release/**'
-    - 'main'
 
 env:
   DOCKER_REGISTRY: ghcr.io

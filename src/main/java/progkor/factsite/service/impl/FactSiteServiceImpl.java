@@ -18,8 +18,8 @@ public class FactSiteServiceImpl implements FactSiteService {
 
     @Autowired
     public FactSiteServiceImpl() {
-        dataBase.add(new FactText(1L, "Test fact", Theme.GENERAL));
-        dataBase.add(new FactText(2L, "Test animal", Theme.ANIMALS));
+        dataBase.add(new FactText(1L, "Egy ember az élete során annyit sétál, hogy 5-ször megkerülhetné a Földet.", Theme.GENERAL));
+        dataBase.add(new FactText(2L, "A csillagorrú vakond a leggyorsabb evő az egész világon.", Theme.ANIMALS));
     }
 
     public FactSiteServiceImpl(final List<FactText> factTexts) {
